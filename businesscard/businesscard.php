@@ -53,17 +53,3 @@ add_action('admin_menu', 'businessCardAdmin');
 add_action('wp_head', array(&$business_card, 'showCard'), 1);
 add_action('activate_businesscard/businesscard.php',  array(&$business_card_settings, 'setUp'));
 ?>
-
-$business_card_settings = CardSettings::get_instance();
-$business_card_admin = new CardAdmin();
-$business_card = new Card();
-
-function businessCardAdmin() {
-	global $business_card_admin;
-	add_options_page('Business Card', 'Business Card', 9, basename(__FILE__), array(&$business_card_admin, 'printForm'));
-}	
-
-add_action('admin_menu', 'businessCardAdmin');
-add_action('wp_head', array(&$business_card, 'showCard'), 1);
-add_action('activate_businesscard/businesscard.php',  array(&$business_card_settings, 'setUp'));
-?>
